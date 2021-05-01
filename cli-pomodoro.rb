@@ -1,3 +1,12 @@
+require 'date'
+
+# creating logs directory
+Dir.mkdir("logs") unless File.exists?("logs")  
+
+filename = Date.today.strftime("%Y-%m")
+
+File.write("logs/" + filename + ".txt", Date.today.strftime("%d-%m-%Y %H:%M: ") + ARGV.join(' ') + "\n", mode: "a")
+
 t = Time.new(0)
 timer = 25
 
